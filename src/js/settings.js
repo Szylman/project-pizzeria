@@ -48,7 +48,7 @@ export const select = {
     phone: '[name="phone"]',
     address: '[name="address"]',
     bottom: '.booking-form',
-    starter: '[name="starter"]',
+    starters: '.checkbox',
   },
   nav: {
     links: '.main-nav a',
