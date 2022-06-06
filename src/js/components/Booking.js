@@ -252,7 +252,6 @@ class Booking {
       address: thisBooking.dom.address.value,
     };
 
-    thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
     console.log(payload);
     const options = {
       method: 'POST',
@@ -262,8 +261,12 @@ class Booking {
       body: JSON.stringify(payload),
     };
 
-    fetch(url, options);
-    thisBooking.updateDOM();
+    fetch(url, options)
+      .then(function(){
+        thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+
+        thisBooking.updateDOM();
+      });
   }
 }
 
